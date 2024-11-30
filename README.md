@@ -24,8 +24,7 @@ Screenshots
 
 Installation
 
-	1.	Clone the repository:
-git clone https://github.com/yourusername/MyRecipes.git
+	1.	Clone the repository:git clone https://github.com/yourusername/MyRecipes.git
 	2.	Open the project in Xcode.
 	3.	Run the project on a simulator or a physical device.
 
