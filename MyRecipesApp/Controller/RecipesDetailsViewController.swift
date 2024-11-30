@@ -28,8 +28,6 @@ class RecipesDetailsViewController: UIViewController {
         
     }
     
-    deinit {
-    }
     
     init(with viewModel: RecipesDetailsViewModel) {
         self.recipeDetailsViewModel = viewModel

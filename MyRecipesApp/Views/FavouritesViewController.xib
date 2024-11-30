@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouritesViewController" customModule="MyRecipesApp" customModuleProvider="target">
+            <connections>
+                <outlet property="noFavLabel" destination="Bgh-Le-nk0" id="MZt-L2-lvl"/>
+                <outlet property="tableView" destination="b0L-8L-LFC" id="Z2K-Ia-MR7"/>
+                <outlet property="view" destination="w0M-Z4-qa3" id="K3I-ok-4eA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="w0M-Z4-qa3">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCG-iD-mnK">
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Favourites" id="cSe-Ra-KkS">
+                            <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="0PH-aj-k2P">
+                                <color key="tintColor" red="0.91764706370000004" green="0.20000001789999999" blue="0.13725490870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="didPressedBackBtn:" destination="-1" id="vne-iV-WUl"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-8L-LFC">
+                    <rect key="frame" x="16" y="111" width="361" height="707"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgh-Le-nk0">
+                    <rect key="frame" x="166.33333333333334" y="415.66666666666669" width="60.666666666666657" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fk5-hR-iXs"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="b0L-8L-LFC" firstAttribute="bottom" secondItem="fk5-hR-iXs" secondAttribute="bottom" id="0rL-Le-FqK"/>
+                <constraint firstItem="OCG-iD-mnK" firstAttribute="trailing" secondItem="fk5-hR-iXs" secondAttribute="trailing" id="HNZ-uE-9ot"/>
+                <constraint firstItem="Bgh-Le-nk0" firstAttribute="centerY" secondItem="w0M-Z4-qa3" secondAttribute="centerY" id="LmZ-Yi-UYM"/>
+                <constraint firstItem="b0L-8L-LFC" firstAttribute="leading" secondItem="fk5-hR-iXs" secondAttribute="leading" constant="16" id="TO7-Jv-sfq"/>
+                <constraint firstItem="OCG-iD-mnK" firstAttribute="leading" secondItem="fk5-hR-iXs" secondAttribute="leading" id="WUt-K4-8h7"/>
+                <constraint firstItem="OCG-iD-mnK" firstAttribute="top" secondItem="fk5-hR-iXs" secondAttribute="top" id="dgU-PP-w2l"/>
+                <constraint firstItem="b0L-8L-LFC" firstAttribute="top" secondItem="OCG-iD-mnK" secondAttribute="bottom" constant="8" id="plz-Wb-tCF"/>
+                <constraint firstItem="Bgh-Le-nk0" firstAttribute="centerX" secondItem="w0M-Z4-qa3" secondAttribute="centerX" id="v3a-HS-4Th"/>
+                <constraint firstItem="fk5-hR-iXs" firstAttribute="trailing" secondItem="b0L-8L-LFC" secondAttribute="trailing" constant="16" id="w5f-iH-FgQ"/>
+            </constraints>
+            <point key="canvasLocation" x="863" y="-37"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

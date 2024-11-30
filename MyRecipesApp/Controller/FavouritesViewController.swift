@@ -11,10 +11,9 @@ class FavouritesViewController: UIViewController {
 
     
     @IBOutlet weak var noFavLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
-    weak var favouritesRecipesViewModel: FavouritesRecipesViewModel?
-    
+    private var favouritesRecipesViewModel : FavouritesRecipesViewModel
+
     
     // MARK: - VC Life Cycle Methods:
     override func viewDidLoad() {
@@ -23,19 +22,26 @@ class FavouritesViewController: UIViewController {
 
     }
 
-    deinit {
+    init(with viewModel: FavouritesRecipesViewModel) {
+        self.favouritesRecipesViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     
     // MARK: - Class Methods:
     private func setupTableViewUI() {
         self.tableView.dataSource = self
+        self.navigationController?.navigationBar.isHidden = true
         
-        
-        if let viewModel = self.favouritesRecipesViewModel, viewModel.favRecipes?.isEmpty ?? true  {
+        if ((self.favouritesRecipesViewModel.favRecipes?.isEmpty) != nil) {
             self.noFavLabel.isHidden = false
         }
-        
         self.tableView.register(UINib(nibName: Constants.NibIdentifiers.favoriteTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.CellReuseIdentifiers.favoriteTableViewCellIdentifier)
         
     }
@@ -49,15 +55,13 @@ class FavouritesViewController: UIViewController {
 // MARK: - TableView Data Source:
 extension FavouritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.favouritesRecipesViewModel?.favRecipes?.count ?? 0 // incase we dont have fav recpies we return 0
+        return self.favouritesRecipesViewModel.favRecipes?.count ?? 0 // incase we dont have fav recpies we return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellReuseIdentifiers.favoriteTableViewCellIdentifier, for: indexPath) as? FavouriteTableViewCell else {
             return UITableViewCell()
         }
-        if let vm = self.favouritesRecipesViewModel {
-            cell.configureCell(with: vm.getFavoriteRecipes[indexPath.row])
-        }
+            cell.configureCell(with: self.favouritesRecipesViewModel.getFavoriteRecipes[indexPath.row])
         return cell
     }
 }

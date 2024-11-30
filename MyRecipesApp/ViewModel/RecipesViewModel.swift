@@ -26,11 +26,14 @@ final class RecipesViewModel {
         return RecipesDetailsViewModel(recipe: isInSearchMode ? self.filteredRecipes[Index] : recipes[Index])
     }
     
-    func getFavoriteRecipeViewModel() -> FavouritesRecipesViewModel {
+    func getFavoriteRecipeViewModel() -> FavouritesRecipesViewModel? {
         return FavouritesRecipesViewModel(favRecipes: self.getFavoriteRecipes())
     }
     
     
+    func updateIsInSearchMode(_ isInSearchMode: Bool) {
+        self.isInSearchMode = isInSearchMode
+    }
     
     func fetchRecipes(completion: @escaping (Result<[Recipe], Error>) -> Void) {
         NetworkManager.shared.get(from: Constants.NetworkConstants.recipesUrl) { [weak self] (result: Result<[Recipe], Error>) in
@@ -73,8 +76,7 @@ final class RecipesViewModel {
 
 extension RecipesViewModel {
     
-    public func inSearchMode(_ isActive: Bool, searchText: String ) -> Bool {
-        self.isInSearchMode = isActive
+    public func inSearchMode( searchText: String ) -> Bool {
         let searchText = searchText
         
         return isInSearchMode && !searchText.isEmpty

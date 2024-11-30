@@ -16,9 +16,7 @@ class RecipesListViewController: UIViewController {
     // MARK: - Vars/Lets:
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var loaderIndiactor: UIActivityIndicatorView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    private var searchActive = false
-    
+    @IBOutlet weak var searchBar: UISearchBar!    
     @IBOutlet weak var noDataLabel: UILabel!
     
     private let recipesViewModel = RecipesViewModel()
@@ -85,9 +83,20 @@ class RecipesListViewController: UIViewController {
         }
     }
     
+    private func showFavouritesVC() {
+        if let viewmodel = self.recipesViewModel.getFavoriteRecipeViewModel() {
+            let vcToPresent = FavouritesViewController(with: viewmodel)
+            let navigationController = UINavigationController(rootViewController: vcToPresent)
+            
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
     
     @IBAction func didPressedFavBtn(_ sender: UIBarButtonItem) {
-        didSelectFavRecipe()
+        
+        showFavouritesVC()
         
     }
     
@@ -97,7 +106,7 @@ class RecipesListViewController: UIViewController {
 // MARK: - CollectionView Data Source Methods:
 extension RecipesListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let inSearchMode = self.recipesViewModel.inSearchMode(searchActive, searchText: self.searchBar.text ?? "")
+        let inSearchMode = self.recipesViewModel.inSearchMode(searchText: self.searchBar.text ?? "")
         return inSearchMode ? self.recipesViewModel.filteredRecipes.count : self.recipesViewModel.recipes.count
         
     }
@@ -113,7 +122,7 @@ extension RecipesListViewController: UICollectionViewDataSource {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellReuseIdentifiers.recipeCollectionViewIdentifier, for: indexPath) as? RecipeCollectionViewCell else { return UICollectionViewCell() }
         
-        let inSearchMode = self.recipesViewModel.inSearchMode(searchActive, searchText: self.searchBar.text ?? "")
+        let inSearchMode = self.recipesViewModel.inSearchMode( searchText: self.searchBar.text ?? "")
         let recipe = inSearchMode ? self.recipesViewModel.filteredRecipes[indexPath.row] : self.recipesViewModel.recipes[indexPath.row]
         
         cell.configureRecipeCell(with: recipe)
@@ -150,23 +159,23 @@ extension RecipesListViewController: UICollectionViewDelegateFlowLayout {
 extension RecipesListViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true
+        self.recipesViewModel.updateIsInSearchMode(true)
         self.searchBar.showsCancelButton = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchActive = true
+        self.recipesViewModel.updateIsInSearchMode(true)
         self.recipesViewModel.updateSearchController(searchBarText: searchText)
     }
     
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchActive = false
+        self.recipesViewModel.updateIsInSearchMode(false)
     }
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchActive = false
+        self.recipesViewModel.updateIsInSearchMode(false)
         self.searchBar.endEditing(true)
         self.searchBar.resignFirstResponder()
     }
@@ -181,19 +190,3 @@ extension RecipesListViewController: UISearchBarDelegate {
     }
 }
 
-
-
-extension RecipesListViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "ShowFavRecipes" {
-                if let destinationVC = segue.destination as? FavouritesViewController {
-                    let favoriteRecipeViewModels = self.recipesViewModel.getFavoriteRecipeViewModel()
-                                    destinationVC.favouritesRecipesViewModel = favoriteRecipeViewModels
-                }
-            }
-        }
-        
-        func didSelectFavRecipe() {
-            performSegue(withIdentifier: "ShowRecipeDetail", sender: nil)
-        }
-}

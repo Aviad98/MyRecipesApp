@@ -66,7 +66,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="L3s-jW-jmT">
                             <rect key="frame" x="300.66666666666669" y="0.0" width="76.333333333333314" height="43.333333333333336"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitness.timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FY3-Zb-fQk">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge.with.dots.needle.bottom.0percent" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FY3-Zb-fQk">
                                     <rect key="frame" x="0.0" y="0.6666666666666643" width="19.666666666666668" height="42"/>
                                     <color key="tintColor" name="AccentColor"/>
                                     <constraints>
@@ -136,7 +136,7 @@
     </objects>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
-        <image name="fitness.timer" catalog="system" width="128" height="123"/>
+        <image name="gauge.with.dots.needle.bottom.0percent" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
