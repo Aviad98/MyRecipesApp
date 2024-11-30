@@ -8,12 +8,10 @@
 import UIKit
 
 class RecipesDetailsViewController: UIViewController {
-
     
+    // MARK: - DetailsVC Vars/Lets:
     @IBOutlet weak var recipeImage: UIImageView!
-    
     @IBOutlet weak var recipeTitle: UILabel!
-    
     @IBOutlet weak var descTextView: UITextView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
@@ -21,10 +19,6 @@ class RecipesDetailsViewController: UIViewController {
     private var recipeDetailsViewModel : RecipesDetailsViewModel
     
     @IBOutlet weak var backButton: UIButton!
-    
-    
-    var data: String?
-
     
     
     // MARK: - View Controller Life Cycle Methods:
@@ -46,9 +40,9 @@ class RecipesDetailsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
-    func setupUIScreen() {
+    // MARK: - Class Methods:
+    private func setupUIScreen() {
         // Round the corners
         backButton.layer.cornerRadius = backButton.frame.height / 2
         backButton.clipsToBounds = true // Ensures subviews are clipped to the rounded corners

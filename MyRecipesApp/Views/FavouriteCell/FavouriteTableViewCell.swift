@@ -15,15 +15,19 @@ class FavouriteTableViewCell: UITableViewCell {
     @IBOutlet private weak var recipeName: UILabel!
     @IBOutlet private weak var recipeImage: UIImageView!
     
+    @IBOutlet weak var circleBackGroundView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.heartButton.layer.cornerRadius = self.frame.size.width / 2
         self.heartButton.imageView?.contentMode = .scaleAspectFit
-        self.heartButton.backgroundColor = .white
+        
+        self.circleBackGroundView.layer.masksToBounds = true
+        self.circleBackGroundView.layer.cornerRadius = self.circleBackGroundView.frame.size.height/2
+
         
         
-        recipeImage.layer.cornerRadius = 10
-        recipeImage.layer.masksToBounds = true
+        self.recipeImage.layer.cornerRadius = 10
+        self.recipeImage.layer.masksToBounds = true
         
         
         self.contentView.layer.cornerRadius = 12
