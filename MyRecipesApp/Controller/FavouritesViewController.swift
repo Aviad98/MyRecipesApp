@@ -39,9 +39,11 @@ class FavouritesViewController: UIViewController {
         self.tableView.dataSource = self
         self.navigationController?.navigationBar.isHidden = true
         
-        if ((self.favouritesRecipesViewModel.favRecipes?.isEmpty) != nil) {
-            self.noFavLabel.isHidden = false
+        if let favRecipes = self.favouritesRecipesViewModel.favRecipes {
+            self.noFavLabel.isHidden = favRecipes.isEmpty ? false : true
         }
+        
+        
         self.tableView.register(UINib(nibName: Constants.NibIdentifiers.favoriteTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.CellReuseIdentifiers.favoriteTableViewCellIdentifier)
         
     }
