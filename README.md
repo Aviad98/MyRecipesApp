@@ -18,7 +18,9 @@ Technologies Used
 
 Screenshots
 
-Soon
+![Screenshot 2024-11-30 at 18 25 18](https://github.com/user-attachments/assets/58b51286-758f-4f35-ae3f-b2dc40456eb7)
+![Screenshot 2024-11-30 at 18 25 35](https://github.com/user-attachments/assets/2c82f464-f6c6-4cad-a231-b575548ca79d)
+
 
 Installation
 
