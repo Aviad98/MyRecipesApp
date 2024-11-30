@@ -18,14 +18,13 @@ Technologies Used
 
 Screenshots
 
-![Screenshot 2024-11-30 at 18 25 18](https://github.com/user-attachments/assets/58b51286-758f-4f35-ae3f-b2dc40456eb7)
-![Screenshot 2024-11-30 at 18 25 35](https://github.com/user-attachments/assets/2c82f464-f6c6-4cad-a231-b575548ca79d)
+![Screenshot 2024-11-30 at 18 25 35](https://github.com/user-attachments/assets/6bd08932-3ec4-40b7-94b0-1088fe75905b)
+![Screenshot 2024-11-30 at 18 44 08](https://github.com/user-attachments/assets/999567b1-dcc8-42c6-8be3-d7faac80da20)
 
 
 Installation
 
-	1.	Clone the repository:
-git clone https://github.com/yourusername/MyRecipes.git
+	1.	Clone the repository:git clone https://github.com/yourusername/MyRecipes.git
 	2.	Open the project in Xcode.
 	3.	Run the project on a simulator or a physical device.
 
