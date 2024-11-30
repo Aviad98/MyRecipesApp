@@ -29,7 +29,7 @@ git clone https://github.com/yourusername/MyRecipes.git
 
 License
 
-This app is developed and maintained by [Your Name]. There are no external dependencies or licenses.
+This app is developed and maintained by Aviad Sabag. There are no external dependencies or licenses.
 
 Contributing
 
