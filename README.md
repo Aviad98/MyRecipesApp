@@ -18,7 +18,7 @@ Technologies Used
 
 Screenshots
 
-Note: Add your screenshots here.
+Soon
 
 Installation
 
